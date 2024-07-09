@@ -12,6 +12,7 @@ interface PageProps {
   register: any;
   registerFieldName: string;
   errors: any;
+  clearErrors: any;
 }
 
 const Dropdown: FC<PageProps> = ({
@@ -22,14 +23,16 @@ const Dropdown: FC<PageProps> = ({
   register,
   registerFieldName,
   errors,
+  clearErrors,
 }) => {
   const handleChange = (e: any) => {
+    clearErrors(registerFieldName);
     setNewValue(e);
   };
   return (
     <Select
       {...(registerFieldName
-        ? register(registerFieldName, { required: value ? false : true })
+        ? register(registerFieldName, { required: true })
         : {})}
       placeholder={placeHolder}
       options={options}

@@ -8,29 +8,28 @@ export const metadata: Metadata = {
   description: "regiment",
 };
 const Regiment = () => {
+  console.log("asdas");
   return (
-    <CheckUser>
-      <div
-        style={{ boxShadow: "2px 4px 19.5px 0px rgba(0, 0, 0, 0.25)" }}
-        className="max-w-[400px] mx-auto p-[14px] regiment rounded-sm bg-white"
-      >
-        <div>
-          <div className="mb-5 w-[111px] mx-auto">
-            <Image
-              src="/thinking2.svg"
-              alt="thinking"
-              width={111}
-              height={111}
-              layout="responsive"
-              placeholder="blur"
-              loading="lazy"
-              blurDataURL="data:image/jpeg..."
-            />
-          </div>
-          <RegimentForm />
+    <div
+      style={{ boxShadow: "2px 4px 19.5px 0px rgba(0, 0, 0, 0.25)" }}
+      className="max-w-[400px] mx-auto p-[14px] regiment rounded-sm bg-white"
+    >
+      <div>
+        <div className="mb-5 w-[111px] mx-auto">
+          <Image
+            src="/thinking2.svg"
+            alt="thinking"
+            width={111}
+            height={111}
+            layout="responsive"
+            placeholder="blur"
+            loading="lazy"
+            blurDataURL="data:image/jpeg..."
+          />
         </div>
+        <RegimentForm />
       </div>
-    </CheckUser>
+    </div>
   );
 };
 

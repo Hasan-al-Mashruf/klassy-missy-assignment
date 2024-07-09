@@ -56,6 +56,8 @@ const RegimentForm = () => {
       selectConcernData?.filter((data: any) => data.value !== value)
     );
   };
+
+  console.log("asdasd", { errors });
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div>
@@ -73,6 +75,7 @@ const RegimentForm = () => {
           register={register}
           errors={errors}
           registerFieldName={"selectConcernData"}
+          clearErrors={clearErrors}
         />
         <Tag
           value={selectConcernData}
@@ -96,6 +99,7 @@ const RegimentForm = () => {
               register={register}
               registerFieldName={"concernData"}
               errors={errors}
+              clearErrors={clearErrors}
             />
           </div>
           <button className="border border-[#ECECEC] bg-white rounded-sm w-[30px] h-[30px] flex items-center justify-center">
