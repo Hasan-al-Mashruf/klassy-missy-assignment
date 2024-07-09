@@ -1,36 +1,21 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h2>Klassy Missy Evaluation Assignment</h2>
+<h5>Live: <a href='https://roombookings-c84e4.web.app/' target="_blank"> https://roombookings-c84e4.web.app/  </a></h5>
+<hr />
+<h4>Features - </h4> <ul> <li>Static Site Generation</li><li>Dynamic Meta tags and dynamic import</li> <li>React beautiful DND is integrated</li> <li>User can play around(DND) with cards in columns</li> <li>HOC protected layout</li> <li>Modern selectable dropdown where user can search select and clear items </li>  <li>Mobile and tablet responsive along with desktop</li> </ul>
 
-## Getting Started
+<h4>Packages & Dependencies</h4> 
+<img src="https://i.ibb.co/pw7tdWk/Capturesdasd.png"/>
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<h4>How to run the project</h4>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<ul>
+  <li>Open terminal and run - git clone https://github.com/Hasan-al-Mashruf/klassy-missy-assignment.git</li>
+  <li> After clone: To install the packages, run - npm install</li>
+  <li> To run in development mode, run - npm run dev</li>
+  <li> To run in produiction mode, run - npm start</li>
+</ul>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Thanks........❤️
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
