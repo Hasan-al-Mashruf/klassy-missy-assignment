@@ -1,4 +1,5 @@
 "use client";
+
 import { v4 as uuidv4 } from "uuid";
 import Dropdown from "@/components/Dropdown/Dropdown";
 import { addFormData, loginNewUser } from "@/redux/features/user/userSlice";
@@ -33,21 +34,23 @@ const LoginForm = () => {
   const router = useRouter();
 
   // component states.....
-  const [selectedDate, setSelectedDate] = useState<Date>(null);
+  const [selectedDate, setSelectedDate] = useState<Date>();
   const [gender, setGender] = useState(genderSData[0]);
   const [concern, setConcern] = useState(concernSData[0]);
   const { userFormData } = useAppSelector((state) => state.user);
   const onSubmit: SubmitHandler<any> = async (data) => {
-    dispatch(
-      loginNewUser({
-        uuid: uuidv4(),
-        name: data?.name,
-        gender: gender?.value,
-        concern: concern?.value,
-        dob: selectedDate,
-        isautheticated: false,
-      })
-    );
+    if (selectedDate) {
+      dispatch(
+        loginNewUser({
+          uuid: uuidv4(),
+          name: data?.name,
+          gender: gender?.value,
+          concern: concern?.value,
+          dob: selectedDate,
+          isautheticated: false,
+        })
+      );
+    }
     dispatch(
       addFormData({
         uuid: uuidv4(),
