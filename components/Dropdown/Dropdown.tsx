@@ -27,9 +27,7 @@ const Dropdown: FC<PageProps> = ({
   clearErrors,
 }) => {
   const handleChange = (e: any) => {
-    if (register) {
-      clearErrors(registerFieldName);
-    }
+    clearErrors(registerFieldName);
     setNewValue(e);
   };
   // redux states....
@@ -38,9 +36,13 @@ const Dropdown: FC<PageProps> = ({
   console.log({
     options,
   });
+
+  console.log({ errors });
   return (
     <Select
-      {...(register ? register(registerFieldName, { required: true }) : {})}
+      {...(register
+        ? { ...register(registerFieldName, { required: value ? false : true }) }
+        : {})}
       placeholder={placeHolder}
       options={options}
       components={{ DropdownIndicator, IndicatorSeparator: () => null }}

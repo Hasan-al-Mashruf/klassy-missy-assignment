@@ -8,7 +8,7 @@ const LogOut = () => {
   console.log({ user });
   return (
     <>
-      {user && user?.name && (
+      {user && user?.isautheticated && (
         <>
           <button
             className="bg-black rounded-sm text-sm font-medium capitalize text-white py-3 px-[18px] "

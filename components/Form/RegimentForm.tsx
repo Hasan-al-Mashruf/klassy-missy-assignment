@@ -9,6 +9,7 @@ import Tag from "../RegimentBoard/Tag/Tag";
 import { addToBoard } from "@/redux/features/regiment/regimentSlice";
 import { v4 as uuidv4 } from "uuid";
 import { useRouter } from "next/navigation";
+import { removeFormData } from "@/redux/features/user/userSlice";
 
 const RegimentForm = () => {
   const {
@@ -17,7 +18,9 @@ const RegimentForm = () => {
     formState: { errors },
     clearErrors,
   } = useForm<any>({
+    mode: "onChange",
     shouldFocusError: false,
+    reValidateMode: "onChange",
   });
   const dispatch = useAppDispatch();
   const router = useRouter();
@@ -43,6 +46,7 @@ const RegimentForm = () => {
         })
       );
     }
+    dispatch(removeFormData());
     clearErrors();
     router.push("/");
     router.refresh();

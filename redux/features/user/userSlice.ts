@@ -28,10 +28,12 @@ const userSlice = createSlice({
     },
     removeLoginUser: (state) => {
       state.user = null;
-      state.userFormData = null;
     },
     removeFormData: (state) => {
       state.userFormData = null;
+      if (state.user) {
+        state.user.isautheticated = true;
+      }
     },
   },
 });

@@ -37,6 +37,7 @@ const ReactDayPicker: React.FC<any> = ({
     setShowData(false);
   };
 
+  console.log({ errors });
   const toggleDatePicker = () => {
     setShowData(!showData);
   };

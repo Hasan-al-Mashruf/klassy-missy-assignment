@@ -17,6 +17,7 @@ export interface IUser {
   gender: string;
   concern: string;
   dob: Date;
+  isautheticated: boolean;
 }
 
 export interface IColumn {

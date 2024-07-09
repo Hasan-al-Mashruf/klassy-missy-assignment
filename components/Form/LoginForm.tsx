@@ -33,7 +33,7 @@ const LoginForm = () => {
   const router = useRouter();
 
   // component states.....
-  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+  const [selectedDate, setSelectedDate] = useState<Date>(null);
   const [gender, setGender] = useState(genderSData[0]);
   const [concern, setConcern] = useState(concernSData[0]);
   const { userFormData } = useAppSelector((state) => state.user);
@@ -45,6 +45,7 @@ const LoginForm = () => {
         gender: gender?.value,
         concern: concern?.value,
         dob: selectedDate,
+        isautheticated: false,
       })
     );
     dispatch(
