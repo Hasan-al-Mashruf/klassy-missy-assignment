@@ -1,5 +1,5 @@
 <h2>Klassy Missy Evaluation Assignment</h2>
-<h5>Live: <a href='https://roombookings-c84e4.web.app/' target="_blank"> https://roombookings-c84e4.web.app/  </a></h5>
+<h5>Live: <a href='https://klassy-missy-assignment-url.vercel.app/' target="_blank"> https://klassy-missy-assignment-url.vercel.app/  </a></h5>
 <hr />
 <h4>Features - </h4> <ul> <li>Static Site Generation</li><li>Dynamic Meta tags and dynamic import</li> <li>React beautiful DND is integrated</li> <li>User can play around(DND) with cards in columns</li> <li>HOC protected layout</li> <li>Modern selectable dropdown where user can search select and clear items </li>  <li>Mobile and tablet responsive along with desktop</li> </ul>
 
