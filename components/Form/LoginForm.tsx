@@ -1,9 +1,13 @@
 "use client";
 import { v4 as uuidv4 } from "uuid";
 import Dropdown from "@/components/Dropdown/Dropdown";
-import { loginNewUser } from "@/redux/features/user/userSlice";
-import { useAppDispatch } from "@/redux/hooks/hooks";
-import { genderSData, selectConcernSData } from "@/staticData/data";
+import { addFormData, loginNewUser } from "@/redux/features/user/userSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks/hooks";
+import {
+  concernSData,
+  genderSData,
+  selectConcernSData,
+} from "@/staticData/data";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -29,27 +33,36 @@ const LoginForm = () => {
   const router = useRouter();
 
   // component states.....
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-  const [gender, setGender] = useState({ value: "", label: "" });
-  const [concern, setConcern] = useState({ value: "", label: "" });
-
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+  const [gender, setGender] = useState(genderSData[0]);
+  const [concern, setConcern] = useState(concernSData[0]);
+  const { userFormData } = useAppSelector((state) => state.user);
   const onSubmit: SubmitHandler<any> = async (data) => {
-    if (selectedDate && gender && concern) {
-      dispatch(
-        loginNewUser({
-          uuid: uuidv4(),
-          name: data?.name,
-          gender: gender?.value,
-          concern: concern?.value,
-          dob: selectedDate,
-        })
-      );
-    }
+    dispatch(
+      loginNewUser({
+        uuid: uuidv4(),
+        name: data?.name,
+        gender: gender?.value,
+        concern: concern?.value,
+        dob: selectedDate,
+      })
+    );
+    dispatch(
+      addFormData({
+        uuid: uuidv4(),
+        name: data?.name,
+        gender: gender ?? userFormData?.gender,
+        concern: concern ?? userFormData?.concern,
+        dob: selectedDate ?? userFormData?.dob,
+      })
+    );
+
     // clears all error if exist
     clearErrors();
     router.push("/regiment");
   };
 
+  console.log({ userFormData });
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div>
@@ -61,6 +74,7 @@ const LoginForm = () => {
             errors.name ? "border-yellow" : "border-borderColor"
           } rounded-sm py-[7px] px-[10px] mt-[9px]`}
           placeholder="Enter your valid name"
+          defaultValue={userFormData?.name}
         />
       </div>
       <div className="grid grid-cols-2 gap-x-6 gap-y-[14px] mt-[14px]">
@@ -71,9 +85,10 @@ const LoginForm = () => {
             value={gender}
             setNewValue={setGender}
             placeHolder=""
-            registerFieldName=""
+            registerFieldName="gender"
             register=""
             errors=""
+            clearErrors={clearErrors}
           />
         </div>
         <div>
@@ -83,9 +98,10 @@ const LoginForm = () => {
             value={concern}
             setNewValue={setConcern}
             placeHolder=""
-            registerFieldName=""
+            registerFieldName="concern"
             register=""
             errors=""
+            clearErrors={clearErrors}
           />
         </div>
         <div>
