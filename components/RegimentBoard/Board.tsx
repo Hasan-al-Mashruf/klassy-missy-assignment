@@ -6,10 +6,12 @@ import {
   updateStatus,
 } from "@/redux/features/regiment/regimentSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks/hooks";
+import { IColumn } from "@/types/types.global";
 
 const KanbanBoard = () => {
   const dispatch = useAppDispatch();
   const items = useAppSelector((state) => state?.regiment.items);
+  const itemss = useAppSelector((state) => console.log({ state }));
   const columns = [
     {
       id: "incoming",
@@ -63,7 +65,7 @@ const KanbanBoard = () => {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-[51px]">
-        {columns.map((column) => (
+        {columns?.map((column) => (
           <Droppable key={column.id} droppableId={column.id}>
             {(provided) => (
               <div ref={provided.innerRef} {...provided.droppableProps}>

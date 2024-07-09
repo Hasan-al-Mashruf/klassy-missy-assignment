@@ -18,3 +18,9 @@ export interface IUser {
   concern: string;
   dob: Date;
 }
+
+export interface IColumn {
+  title: string;
+  id: string;
+  items: IRegiment[] | [];
+}

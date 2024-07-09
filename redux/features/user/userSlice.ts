@@ -20,7 +20,9 @@ const userSlice = createSlice({
         state.user = payload;
       }
     },
-    removeLoginUser: (state, { payload }) => {},
+    removeLoginUser: (state) => {
+      state.user = null;
+    },
   },
 });
 

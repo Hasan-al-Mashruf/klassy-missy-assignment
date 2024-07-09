@@ -1,13 +1,23 @@
-const Tag = ({ value, handleTags, terms }) => {
+import { Option } from "@/types/types.global";
+import { FC } from "react";
+
+interface PageProps {
+  value: Option[];
+  terms: string;
+  handleTags: any;
+}
+const Tag: FC<PageProps> = ({ value, handleTags, terms }) => {
   console.log({ value });
   return (
     <>
       {value.length > 0 && (
         <div className="flex flex-wrap gap-x-[14px] gap-y-2 mt-[22px]">
-          {value?.map((data) => {
-            console.log({ data });
+          {value?.map((data, index) => {
             return (
-              <div className="flex items-center bg-red-100 text-red-700 px-[10px] py-[7px] rounded bg-[#FFF0F0] w-fit gap-2">
+              <div
+                className="flex items-center bg-red-100 text-red-700 px-[10px] py-[7px] rounded bg-[#FFF0F0] w-fit gap-2"
+                key={index}
+              >
                 <h3 className="text-[#920000] text-[13px]">{data.label}</h3>
                 <button
                   className="ml-2"

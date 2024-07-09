@@ -30,11 +30,13 @@ const RegimentForm = () => {
   const [concernData, setConcernData] = useState([]);
 
   const onSubmit: SubmitHandler<any> = async (data) => {
+    const shortUuid = uuidv4().split("-")[0];
+    console.log({ shortUuid });
     if (selectConcernData && concernData && user && user.name) {
       dispatch(
         addToBoard({
-          uuid: uuidv4(),
-          name: `Regimen: RGM ${uuidv4()}`,
+          uuid: shortUuid,
+          name: `Regimen: RGM${shortUuid}`,
           date: new Date().toISOString(),
           status: "incoming",
           creator: user?.name,
@@ -57,7 +59,7 @@ const RegimentForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div>
-        <div className="flex justify-between items-center mb-[9px]">
+        <div className="flex justify-between items-center mb-[9px] flex-wrap gap-1">
           <label>What’s your concern?</label>
           <span className="text-[#929292] text-[10px] pr-5">
             (You can select multiple concern )

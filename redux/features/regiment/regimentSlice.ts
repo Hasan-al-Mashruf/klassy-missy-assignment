@@ -16,28 +16,28 @@ const initialState: InitialState = {
     {
       uuid: "1",
       name: "Regimen: RGM1234",
-      date: "June 30, 2024",
+      date: "2024-07-09T01:32:04.445Z",
       status: "incoming",
       creator: "fahim",
     },
     {
       uuid: "2",
       name: "Regimen: RGM1255",
-      date: "June 30, 2024",
+      date: "2024-07-09T07:54:45.817Z",
       status: "incoming",
       creator: "karim",
     },
     {
       uuid: "3",
       name: "Regimen: RGM1257",
-      date: "June 30, 2024",
+      date: "2024-07-09T01:32:30.602Z",
       status: "incoming",
       creator: "atik",
     },
     {
       uuid: "4",
       name: "Regimen: RGM1257s",
-      date: "June 30, 2024",
+      date: "2024-07-09T07:54:45.817Z",
       status: "processing",
       creator: "jamal",
     },
@@ -54,15 +54,9 @@ const regimentSlice = createSlice({
     },
     updateStatus: (state, { payload }: PayloadAction<Partial<IRegiment>>) => {
       const item = state.items.find((item) => item.uuid === payload.uuid);
-      if (item) {
+      if (item && payload.status) {
         item.status = payload.status;
       }
-    },
-    removeFromBoard: (state, { payload }: PayloadAction<string>) => {
-      state.items = state.items.filter((item) => item.uuid !== payload);
-    },
-    emptyBoard: (state) => {
-      state.items = [];
     },
     reorderItems: (state, { payload }: PayloadAction<ReorderPayload>) => {
       const { columnId, startIndex, endIndex } = payload;
@@ -85,11 +79,5 @@ const regimentSlice = createSlice({
   },
 });
 
-export const {
-  addToBoard,
-  updateStatus,
-  removeFromBoard,
-  emptyBoard,
-  reorderItems,
-} = regimentSlice.actions;
+export const { addToBoard, updateStatus, reorderItems } = regimentSlice.actions;
 export default regimentSlice.reducer;

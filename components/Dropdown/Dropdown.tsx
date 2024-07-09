@@ -42,6 +42,7 @@ const Dropdown: FC<PageProps> = ({
       isMulti={registerFieldName ? true : false}
       controlShouldRenderValue={registerFieldName ? false : true}
       isClearable={false}
+      isSearchable={true}
     />
   );
 };

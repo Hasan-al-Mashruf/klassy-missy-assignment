@@ -1,9 +1,13 @@
 // components/Column.js
-import React from "react";
+import React, { FC } from "react";
 import { Draggable } from "react-beautiful-dnd";
 import Card from "../Card/Card";
+import { IRegiment } from "@/types/types.global";
 
-const Column = ({ title, items }) => {
+const Column: FC<{ title: string; items: IRegiment[] }> = ({
+  title,
+  items,
+}) => {
   return (
     <div className="bg-gray p-6 lg:min-h-screen rounded-sm">
       <div className="flex justify-between items-center mb-6">
