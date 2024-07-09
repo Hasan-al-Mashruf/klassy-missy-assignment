@@ -5,14 +5,16 @@ const config: Config = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/react-tailwindcss-select/dist/index.esm.js",
   ],
   theme: {
-    extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
+    colors: {
+      primary: "#172B4D",
+      borderColor: "#ECECEC",
+      gray: "#F4F4F4",
+      black: "#000",
+      white: "#fff",
+      yellow: "#FF8A00",
     },
   },
   plugins: [],
